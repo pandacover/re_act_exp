@@ -1,15 +1,19 @@
-# Minimal Menu-Based Ollama Agent
+# ReAct Agent Experiment 
 
-A simple Python agent that avoids fragile native tool-calling. The model only chooses one action from the environment's admissible-command menu; Python owns all environment calls and success checks.
+## Problem statement
+Can a tiny model like `qwen3.5:0.8b` solve a simple embodied text game if given access to a simulated environment?
 
-Features:
+## Task
+> *Note: This is not an official ALFWorld task but a simplified version for testing purposes.*
 
-- Ollama via raw HTTP `/api/generate`
-- No LangGraph tool calls / XML function-call parsing
-- Stateful mini-ALFWorld command integration
-- Menu validation + retry + deterministic fallback
+put the apple in the fridge
 
-## Prerequisites
+## Conclusion
+Even a tiny model like `qwen3.5:0.8b` can solve a simple embodied text game with the help of ReAct strategy.
+
+## Testing out for yourself
+
+### Prerequisites
 
 Install and run Ollama, then pull a model:
 
@@ -17,7 +21,7 @@ Install and run Ollama, then pull a model:
 ollama pull qwen3.5:0.8b
 ```
 
-## Run
+### Run
 
 Run the menu-based agent:
 
@@ -35,4 +39,16 @@ You can choose another Ollama model with `--model`:
 
 ```powershell
 uv run agent --model mistral
+```
+
+## Research papers which inspired this project
+Paper: ReAct: Synergizing Reasoning and Acting in Language Models  
+arXiv: https://arxiv.org/abs/2210.03629
+```bibtex
+@article{yao2022react,
+  title={ReAct: Synergizing Reasoning and Acting in Language Models},
+  author={Yao, Shunyu and Zhao, Jeffrey and Yu, Dian and Du, Nan and Shafran, Izhak and Narasimhan, Karthik and Cao, Yuan},
+  journal={arXiv preprint arXiv:2210.03629},
+  year={2022}
+}
 ```
